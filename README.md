@@ -65,19 +65,19 @@ EMAIL_PASSWORD =
 ```
 ## File Structure
 
-<img src="./images/folder-structure.png" width="220">
+<img src="./images/folder-structure.png" width="280">
 
 
 ## Screenshots
 
 #### Beekeeper Studio
 
-<img src="./images/image.png" width="400">
+<img src="./images/image.png" width="700">
 
 
 #### Email Verification
 
-<img src="./images/image-1.png" width="400">
+<img src="./images/image-1.png" width="700">
 
 
 

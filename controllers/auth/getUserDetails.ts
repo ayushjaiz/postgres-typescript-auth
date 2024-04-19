@@ -5,7 +5,6 @@ async function getUserDetails(req: AuthenticatedRequest, res: Response) {
     try {
         // Access the user property from the AuthenticatedRequest
         const user = req.user;
-        console.log("details of user " + user);
 
         res.status(201).json({ status: "success", user: user });
     } catch (error) {

@@ -4,9 +4,7 @@ import { updateUser } from '../../models/User';
 
 async function resetPassword(req: Request, res: Response): Promise<void> {
     const { password, password_confirmation } = req.body;
-    const { id, token } = req.query;
-
-    console.log("id" + id,token + "token");
+    const { id, token } = req.params;
 
     try {
         if (!password || !password_confirmation) {
@@ -31,7 +29,6 @@ async function resetPassword(req: Request, res: Response): Promise<void> {
 
         // verify token
         const secretId = verifyToken(token);
-        console.log(secretId);
 
         if (parseInt(id) !== secretId) {
             res.status(400).json({ status: "failed", message: 'Invalid id or token' });

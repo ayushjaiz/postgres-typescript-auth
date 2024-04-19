@@ -20,7 +20,6 @@ async function checkUserAuth(req: AuthenticatedRequest, res: Response, next: Nex
 
         // Verify Token
         const userId = verifyToken(token);
-        console.log(userId);
 
         // Get user from id
         const user = await getUser({ id: userId });

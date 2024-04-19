@@ -36,7 +36,7 @@ async function comparePassword(enteredPassword: string, storedPassword: string):
  * @param id - User ID to embed in the token.
  * @returns generated JWT token.
  */
-function generateToken(id: number): string {
+function generateToken(id: number, duration: number = tokenDuration): string {
     const token = jwt.sign({ userId: id }, `${process.env.JWT_SECRET_KEY}`, { expiresIn: tokenDuration });
     return token;
 }

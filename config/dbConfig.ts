@@ -2,6 +2,9 @@ import dotenv from "dotenv";
 dotenv.config({ path: `${process.cwd()}/.env` });
 import { Pool } from "pg";
 
+/**
+ * Configuration object for database connection.
+ */
 const connectionConfig = {
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -25,7 +28,7 @@ async function connectToDB() {
 }
 
 /**
- * Creates 'users' table in the database.
+ * Creates 'users' table in the database if not already present.
  */
 async function createUserTable() {
     try {

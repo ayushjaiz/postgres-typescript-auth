@@ -13,6 +13,7 @@ async function userRegistration(req: Request, res: Response): Promise<void> {
             return;
         }
 
+        // Email and password validation
         if (!validateEmail(email) || !validateUsername(username)) {
             res.status(400).json({ status: "failed", message: 'Enter correct email id and at least 5 letters username' });
             return;

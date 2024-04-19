@@ -2,7 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../utils/utils';
 import { getUser } from '../models/User';
 
-async function checkUserAuth(req: Request, res: Response, next: NextFunction) {
+// Custom interface extending the Request interface
+export interface AuthenticatedRequest extends Request {
+    user?: any; 
+}
+
+async function checkUserAuth(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     const { authorization } = req.headers;
 
     if (!authorization || !authorization.startsWith('Bearer')) {
@@ -15,6 +20,7 @@ async function checkUserAuth(req: Request, res: Response, next: NextFunction) {
 
         // Verify Token
         const userId = verifyToken(token);
+        console.log(userId);
 
         // Get user from id
         const user = await getUser({ id: userId });
@@ -22,6 +28,7 @@ async function checkUserAuth(req: Request, res: Response, next: NextFunction) {
         if (!user) {
             return res.status(401).json({ message: "Unauthorized User" });
         }
+        req.user = user;
 
         // If everything is fine, proceed to the next middleware
         next();

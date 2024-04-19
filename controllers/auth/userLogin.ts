@@ -7,7 +7,7 @@ async function userLogin(req: Request, res: Response): Promise<void> {
     try {
         // Check if all fields are present
         if (!email || !password) {
-            res.status(400).json({ message: 'Both email and password fields are required' });
+            res.status(401).json({ message: 'Both email and password fields are required' });
             return;
         }
 

@@ -4,6 +4,8 @@ import {
     userRegistration,
     changeUserPassord,
     resetPassword,
+    sendPassWordResetEmail,
+    getUserDetails,
 } from "./auth";
 
 export {
@@ -11,5 +13,7 @@ export {
     userLogout,
     userRegistration,
     changeUserPassord,
-    resetPassword
+    resetPassword,
+    sendPassWordResetEmail,
+    getUserDetails,
 };

@@ -45,7 +45,7 @@ async function getUser(options: { email?: string, id?: number }): Promise<User |
             values.push(options.email);
         }
         if (options.id) {
-            query += ' password = $' + (values.length + 1);
+            query += ' id = $' + (values.length + 1);
             values.push(options.id);
         }
 

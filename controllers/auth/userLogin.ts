@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getUser } from '../../models/User';
+import { UserModel } from '../../models/User';
 import { comparePassword, generateToken, tokenDuration } from '../../utils/utils';
 
 async function userLogin(req: Request, res: Response): Promise<void> {
@@ -12,7 +12,7 @@ async function userLogin(req: Request, res: Response): Promise<void> {
         }
 
         // Retrieve user with provided email
-        const user = await getUser({ email: email });
+        const user = await UserModel.getUser({ email: email });
         if (!user) {
             res.status(401).json({ message: 'User account not found' });
             return;

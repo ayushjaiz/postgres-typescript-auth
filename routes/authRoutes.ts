@@ -12,24 +12,19 @@ import {
 
 const router = Router();
 
-router.post('/', (req, res) => {
-    const { message } = req.body;
-    res.send('Response from server ' + message);
-})
-
 //Route Level Middleware
 router.use('/change-password', checkUserAuth);
-router.get('/user-details', checkUserAuth);
+router.get('/user-info', checkUserAuth);
 
 // Public routes
-router.post('/register', userRegistration);
+router.post('/signup', userRegistration);
 router.post('/login', userLogin);
 router.post('/send-passord-reset-email', sendPassWordResetEmail);
-router.post('/reset-password', resetPassword);
+router.post('/reset-password/:id/:token', resetPassword);
 
 // Protected routes
 router.post('/change-password', changeUserPassord);
 router.post('/logout', userLogout);
-router.get('/user-details', getUserDetails);
+router.get('/user-info', getUserDetails);
 
 export default router;

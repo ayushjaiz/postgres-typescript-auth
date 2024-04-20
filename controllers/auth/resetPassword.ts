@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { generateHashedPassword, verifyToken } from '../../utils/utils';
-import { updateUser } from '../../models/User';
+import { UserModel } from '../../models/User';
 
 async function resetPassword(req: Request, res: Response): Promise<void> {
     const { password, password_confirmation } = req.body;
@@ -35,7 +35,7 @@ async function resetPassword(req: Request, res: Response): Promise<void> {
             return;
         }
 
-        await updateUser(secretId, { password: password });
+        await UserModel.updateUser(secretId, { password: password });
 
         res.status(201).json({ status: "success", message: 'Password changed successfully', });
     } catch (error) {

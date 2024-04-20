@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { generateHashedPassword } from '../../utils/utils';
-import { updateUser } from '../../models/User';
+import { UserModel } from '../../models/User';
 import { AuthenticatedRequest } from '../../middleware/authMiddleware';
 
 async function changeUserPassord(req: AuthenticatedRequest, res: Response) {
@@ -26,7 +26,7 @@ async function changeUserPassord(req: AuthenticatedRequest, res: Response) {
         const hashedPassword = await generateHashedPassword(password);
 
         // Update user password in database
-        await updateUser(user.id, { password: hashedPassword });
+        await UserModel.updateUser(user.id, { password: hashedPassword });
 
         res.status(201).json({ status: "success", message: 'Password changed successfully' });
     } catch (error) {

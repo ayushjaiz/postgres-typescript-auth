@@ -65,19 +65,35 @@ EMAIL_PASSWORD =
 ```
 ## File Structure
 
-<img src="./images/folder-structure.png" width="280">
+<img src="./readme-images/folder-structure.png" width="280">
 
+## Routes
+
+### Public Routes
+
+| Route                          | Method | Description                              |
+|--------------------------------|--------|------------------------------------------|
+| /auth/login                    | POST   | Authenticates user and returns JWT token.|
+| /auth/signup                   | POST   | Registers a new user.                    |
+| /auth/logout                   | POST   | Logs out the current user.               |
+| /auth/send-password-reset-email| POST   | Sends forget password email to user.     |
+
+### Protected Routes
+
+| Route                          | Method | Description                              |
+|--------------------------------|--------|------------------------------------------|
+| /auth/user-info                | GET    | Retrieves user profile information.      |
+| /auth/change-password          | POST   | Updates user password settings.          |
 
 ## Screenshots
 
 #### Beekeeper Studio
 
-<img src="./images/image.png" width="700">
+<img src="./readme-images/beekeeper-db.png" width="700">
 
+#### Forget Password Email
 
-#### Email Verification
-
-<img src="./images/image-1.png" width="700">
+<img src="./readme-images/forget-passowrd-email.png" width="700">
 
 
 

@@ -12,7 +12,7 @@ const tokenDuration = 3 * 24 * 60 * 60;
  * Generate a hashed password asynchronously using bcrypt.
  * 
  * @param password - Password to be hashed.
- * @returns Promise that resolves to the hashed password.
+ * @returns - Promise that resolves to the hashed password.
  */
 async function generateHashedPassword(password: string): Promise<string> {
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -33,8 +33,10 @@ async function comparePassword(enteredPassword: string, storedPassword: string):
 /**
  * Generate a JWT token with user ID embedded.
  * 
- * @param id - User ID to embed in the token.
- * @returns generated JWT token.
+ * @param id - User ID to embed in the token
+ * @param options - Optional parameters.
+ * @param options.duration - Duration of the token's validity in seconds.
+ * @returns - Generated JWT token.
  */
 function generateToken(id: number, duration: number = tokenDuration): string {
     const token = jwt.sign({ userId: id }, `${process.env.JWT_SECRET_KEY}`, { expiresIn: tokenDuration });

@@ -4,8 +4,8 @@
   "description": "postgress-node auth using typescript",
   "main": "server.ts",
   "scripts": {
-    "start": "ts-node server.ts",
-    "dev": "nodemon server.ts"
+    "start": "node init && ts-node server.ts",
+    "dev": "node init && nodemon server.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.13",
     "pg": "^8.11.5"
   },

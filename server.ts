@@ -10,10 +10,15 @@ const app = express();
 const port = process.env.APP_PORT || 3000;
 
 // Creates user table
-createUserTable();
+// createUserTable();
 
 app.use(express.json());
-app.use(cors());
+
+const corsConfig = {
+    credentials: true,
+    origin: true,
+};
+app.use(cors(corsConfig));
 
 app.get('/', (req, res) => {
     res.send('Response from server');

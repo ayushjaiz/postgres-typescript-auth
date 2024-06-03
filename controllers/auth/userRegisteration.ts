@@ -6,6 +6,8 @@ import { validateEmail, validateUsername } from '../../utils/validators';
 async function userRegistration(req: Request, res: Response): Promise<void> {
     const { username, email, password, password_confirmation } = req.body;
 
+    console.log(email);
+
     try {
         // Check if all fields are present
         if (!username || !email || !password || !password_confirmation) {
